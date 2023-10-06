@@ -5,7 +5,7 @@ export const AddTodo = props => {
     return(
         <View style = {styles.block}>
             <TextInput />
-            <Button title = 'ДОБавить ' />
+            <Button title = 'Добавить ' />
 
         </View>
     )
