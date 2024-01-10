@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Navbar } from './src/Navbar';
 import React, { useState } from 'react';
 import { AddTodo } from './src/AddTodo';
+import { Todo } from './src/Todo';
 
 
 export default function App() {
@@ -23,18 +24,23 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
+    <View>
       <Navbar title="ToDo App" />
-      <AddTodo onSubmit={AddTodo}/>
-      <View>
-        { todos.map(todo =>{
-          return <Text key={todo.id}>{todo.title}</Text>
-        }) }
+      <View style={styles.container}>
+        <AddTodo onSubmit={addTodo}/>
+        <View>
+          { todos.map(todo =>(
+            <Todo todo={todo} key={todo.id}/>
+          )) }
+        </View>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    paddingHorizontal: 30,
+    paddingVertical: 20
+  },
 });
