@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Navbar } from './src/Navbar';
-import React, { useState } from 'react';
 import { AddTodo } from './src/AddTodo';
 import { Todo } from './src/Todo';
 
@@ -27,11 +27,13 @@ export default function App() {
     <View>
       <Navbar title="ToDo App" />
       <View style={styles.container}>
-        <AddTodo onSubmit={addTodo}/>
+        <AddTodo onSubmit={addTodo} />
         <View>
-          { todos.map(todo =>(
-            <Todo todo={todo} key={todo.id}/>
-          )) }
+          { todos.map(todo =>{
+            return <Text key={todo.id}>{todo.title}</Text>
+            }
+            ) 
+          }
         </View>
       </View>
     </View>
