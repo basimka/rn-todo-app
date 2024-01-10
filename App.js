@@ -20,6 +20,7 @@ export default function App() {
     {id:10, title: 'test'},
     {id:11, title: 'test'},
     {id:12, title: 'test'},
+    {id:12, title: 'test'},
   ])
 
   const addTodo = title => {
