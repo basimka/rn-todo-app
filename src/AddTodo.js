@@ -1,10 +1,10 @@
 import React from 'react'
 import { View,StyleSheet,TextInput,Button } from 'react-native'
 
-export const AddTodo = ({ onSubmint }) => {
+export const AddTodo = ({ onSubmit }) => {
 
     const pressHandler = () =>{
-        onSubmint('Test todo!')
+        onSubmit('Test todo!')
     }
 
     return(
