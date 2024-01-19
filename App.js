@@ -3,14 +3,23 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, FlatList} from 'react-native';
 import { Navbar } from './src/components/Navbar';
 import { MainScreen } from './src/screens/MainScreen';
-
+import { TodoScreen } from './src/screens/TodoScreen';
 
 
 export default function App() {
+  const [todoId, setTodoId] = useState(123)
   const [todos,setTodos] = useState([])
 
   const removeTodo = id => {
     setTodos(prev => prev.filter(todo => todo.id !== id))
+  }
+
+  let content = (
+    <MainScreen todos={todos} addTodo={addTodo} removeTodo={removeTodo}/>
+  )
+
+  if (todoId){
+    content = <TodoScreen />
   }
 
   const addTodo = title => {
@@ -31,7 +40,7 @@ export default function App() {
     <View>
       <Navbar title="ToDo App" />
       <View style={styles.container}>
-        <MainScreen todos={todos} addTodo={addTodo} removeTodo={removeTodo}/>
+        {  content  }
         
         
       </View>
